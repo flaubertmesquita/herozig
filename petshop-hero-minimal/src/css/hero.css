@@ -1,0 +1,39 @@
+:root {
+  color-scheme: dark;
+  --pet-hero-background: #151711;
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; min-height: 100%; margin: 0; }
+body { overflow: hidden; background: var(--pet-hero-background); }
+.pet-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 65% 45%, #424738 0%, #24281e 42%, var(--pet-hero-background) 100%);
+  touch-action: pan-y;
+}
+.pet-hero__video {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.pet-hero.is-ready .pet-hero__video { opacity: 1; }
+.pet-hero__shade {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(15,17,13,.15), transparent 40%, rgba(15,17,13,.12));
+}
+@media (prefers-reduced-motion: reduce) {
+  .pet-hero__video { transition: none; }
+}
